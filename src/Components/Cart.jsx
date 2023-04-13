@@ -8,8 +8,9 @@ const CartPage = () => {
         updateQuantity(productId, newQuantity)
     }
     const decCount = (productId, currentQuantity) => {
-        const newQuantity = currentQuantity - 1;
-        updateQuantity(productId, newQuantity)
+        if(currentQuantity>1)
+        {const newQuantity = currentQuantity - 1;
+        updateQuantity(productId, newQuantity)}
     }
     const total = () => {
         return cart.reduce((total, item) => {
