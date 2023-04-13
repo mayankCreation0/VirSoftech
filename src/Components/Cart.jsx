@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { context } from '../Context/Context'
-
+import '../Styles/cart.css';
 const CartPage = () => {
     const { cart, updateQuantity } = useContext(context);
     const incCount = (productId, currentQuantity) => {
@@ -18,24 +18,42 @@ const CartPage = () => {
     }
     console.log(cart)
     return (
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,border:'1px solid red',width:'50%',height:'600px'}}>
             <h1>Cart</h1>
-            {cart.length > 0 ?
-                cart.map((el) => (
-                    <div style={{ display: 'flex',flexDirection:'column' }}>
-                        <h4>{el.title}</h4>
-                        <img src={el.image} alt={el.title} style={{ width: "100px" }} />
-                        <div>
-                            <button onClick={() => decCount(el.id, el.quantity)}>-</button>
-                            <button >{el.quantity}</button>
-                            <button onClick={() => incCount(el.id, el.quantity)}>+</button>
-                        </div>
-                        <h2>Price:{el.quantity * el.price}</h2>
-                    </div>
-                )) : "no data found"
-            }
-            <h1>Grandtotal : {total()}</h1>
+            {cart.length > 0 ? (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cart.map((el) => (
+                            <tr key={el.id}>
+                                <td>
+                                    <h4>{el.title}</h4>
+                                    <img src={el.image} alt={el.title} style={{ width: "50px" }} />
+                                </td>
+                                <td>
+                                    <div>
+                                        <button onClick={() => decCount(el.id, el.quantity)}>-</button>
+                                        <span>{el.quantity}</span>
+                                        <button onClick={() => incCount(el.id, el.quantity)}>+</button>
+                                    </div>
+                                </td>
+                                <td>{el.quantity * el.price}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                "no data found"
+            )}
+            <h1>Grandtotal: {total()}</h1>
         </div>
+
     )
 }
 export default CartPage

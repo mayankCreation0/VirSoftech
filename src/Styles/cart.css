@@ -1,0 +1,44 @@
+/* Style for the cart container */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for each item in the cart */
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    width: 300px;
+}
+
+/* Style for the item image */
+.cart-item img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* Style for the buttons that modify the item quantity */
+.cart-item button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Style for the item price */
+.cart-item h2 {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: normal;
+}
