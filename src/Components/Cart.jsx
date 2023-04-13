@@ -19,10 +19,10 @@ const CartPage = () => {
     }
     console.log(cart)
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,border:'1px solid red',width:'50%',height:'600px'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' ,width:'50%',height:'600px'}}>
             <h1>Cart</h1>
             {cart.length > 0 ? (
-                <table>
+                <table style={{ border: '1px solid red', width: '50%', height: '600px' }}>
                     <thead>
                         <tr>
                             <th>Item</th>

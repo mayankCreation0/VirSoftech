@@ -28,22 +28,26 @@ const Product = () => {
         console.log(product)
     }
     return (
-        <div>
+        <div style={{ border: '1px solid black', padding: '10px' }}>
             <h2>Product</h2>
-            <div style={{ display: 'flex', flexDirection: "row" }}>
+            <div style={{ display: 'flex', flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
                 {
                     data.map((el) => (
-                        <div key={el.id}>
-                            <h1>{el.title}</h1>
-                            <img src={el.image} alt={el.title} style={{ width: "100px" }} />
-                            <h3>${el.price}</h3>
-                            <button onClick={()=>handleUpdate(el)} disabled={cart.some((item)=>item.id === el.id)}>Buy</button>
+                        <div key={el.id} style={{ border: '1px solid #ccc', borderRadius: '5px', padding: '10px' }}>
+                            <h1 style={{ margin: 0 }}>{el.title}</h1>
+                            <img src={el.image} alt={el.title} style={{ width: "100px", margin: '10px 0' }} />
+                            <h3 style={{ margin: 0 }}>${el.price}</h3>
+                            <button style={{ padding: '10px', borderRadius: '5px', backgroundColor: '#008CBA', color: '#fff', border: 'none', marginTop: '10px' }}
+                                onClick={() => handleUpdate(el)}
+                                disabled={cart.some((item) => item.id === el.id)}>
+                                {cart.some((item) => item.id === el.id) ? 'Added to Cart' : 'Buy'}
+                            </button>
                         </div>
                     ))
                 }
-            
             </div>
         </div>
+
     )
 }
 
